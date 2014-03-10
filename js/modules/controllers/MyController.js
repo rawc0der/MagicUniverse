@@ -24,6 +24,7 @@ define([
 			siteFrame.renderTo( $('#page_wrapper'), true );
 			d3.select("body").style("background-color", "black");
 			d3.select("h2").style("color", "white");
+			d3.select("h5").style("color", "#cdc");
 
 		} // end start
 
