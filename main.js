@@ -15,7 +15,7 @@ require.config({
 	    widget: 'modules/views/widget-0.7',
 	    transit: 'library/min/jquery.transit.min',
 	    text:'library/text',
-	    d3: 'http://d3js.org/d3.v3.min'
+	    d3: 'library/d3.v3.min'
 	    // soyutils: 'library/googleClosure/soyutils'
 	},
 	shim: {
