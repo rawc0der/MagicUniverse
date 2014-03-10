@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0016)http://d3js.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<meta name="viewport" content="width=1040">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta itemprop="description" name="description" content="collaborative comunity artwork puzzle.">
+<link rel="image_src" href="http://d3js.org/preview.png">
+
+
+<title>Magic Universes</title>
+<style>
+
+html {
+  min-width: 1040px;
+  margin: 0;
+}
+
+body {
+  font: 16px/1.5em "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#examples {
+  background: #ddd;
+  height: 1570px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
+}
+
+#examples:after,
+#examples:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  background: red;
+  height: 16px;
+  z-index: 2;
+}
+
+#examples:before {
+  bottom: -16px;
+  box-shadow: 0px -8px 16px rgba(0,0,0,.3);
+}
+
+#examples:after {
+  top: -16px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,.3);
+}
+
+#examples-deep {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#examples svg,
+#examples canvas {
+  position: absolute;
+}
+
+.example-mesh {
+  fill: none;
+  /*stroke: #fff;*/
+  stroke-width: 2px;
+}
+
+.example-anchor path {
+  fill: none;
+  pointer-events: all;
+}
+
+.example-anchor path:hover {
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+h1 {
+  color: #555;
+  font-size: 64px;
+  font-weight: 200;
+  letter-spacing: -2px;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+h1,
+h2 {
+  text-rendering: optimizeLegibility;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+h2 a {
+  color: #ccc;
+  left: -20px;
+  position: absolute;
+  width: 740px;
+}
+
+footer {
+  font-size: small;
+  margin-top: 8em;
+}
+
+header aside {
+  margin-top: 82px;
+}
+
+header aside,
+footer aside {
+  color: #636363;
+  text-align: right;
+}
+
+aside {
+  font-size: small;
+  left: 780px;
+  position: absolute;
+  width: 180px;
+}
+
+.column {
+  margin: auto;
+  width: 720px;
+  padding-right: 240px;
+  position: relative;
+}
+
+a {
+  color: steelblue;
+}
+
+a:not(:hover) {
+  text-decoration: none;
+}
+
+pre,
+code {
+  font-family: "Menlo", monospace;
+  -webkit-text-size-adjust: 100%;
+}
+
+code {
+  line-height: 1em;
+}
+
+pre {
+  border-left: solid 2px #ccc;
+  padding-left: 18px;
+  margin: 2em 0 2em -20px;
+}
+
+.html .value,
+.javascript .string,
+.javascript .regexp {
+  color: #756bb1;
+}
+
+.html .tag,
+.css .tag,
+.javascript .keyword {
+  color: #3182bd;
+}
+
+.comment {
+  color: #636363;
+}
+
+.html .doctype,
+.javascript .number {
+  color: #31a354;
+}
+
+.html .attribute,
+.css .attribute,
+.javascript .class,
+.javascript .special {
+  color: #e6550d;
+}
+
+</style>
+
+</head><body>
+
+<div id="examples">
+  <div id="examples-deep" style="-webkit-transform: translate(102.44319999999999px, -35.001999999999995px);"><canvas height="575" width="1707.5" style="left: -171px; top: -57px;"></canvas><svg height="575" width="1707.5" style="left: -171px; top: -57px;"><path class="example-mesh" d="M0,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M129.9038105676658,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M259.8076211353316,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M389.7114317029974,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M519.6152422706632,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M649.519052838329,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M779.4228634059948,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M909.3266739736606,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1039.2304845413264,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1169.1342951089923,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1299.0381056766582,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1428.9419162443241,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1558.84572681199,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1688.749537379656,0m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M64.9519052838329,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M194.8557158514987,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M324.7595264191645,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M454.6633369868303,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M584.5671475544962,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M714.470958122162,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M844.3747686898278,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M974.2785792574936,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1104.1823898251594,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1234.086200392825,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1363.990010960491,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1493.8938215281569,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1623.7976320958228,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1753.7014426634887,112.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M0,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M129.9038105676658,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M259.8076211353316,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M389.7114317029974,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M519.6152422706632,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M649.519052838329,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M779.4228634059948,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M909.3266739736606,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1039.2304845413264,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1169.1342951089923,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1299.0381056766582,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1428.9419162443241,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1558.84572681199,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1688.749537379656,225m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M64.9519052838329,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M194.8557158514987,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M324.7595264191645,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M454.6633369868303,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M584.5671475544962,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M714.470958122162,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M844.3747686898278,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M974.2785792574936,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1104.1823898251594,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1234.086200392825,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1363.990010960491,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1493.8938215281569,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1623.7976320958228,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1753.7014426634887,337.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M0,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M129.9038105676658,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M259.8076211353316,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M389.7114317029974,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M519.6152422706632,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M649.519052838329,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M779.4228634059948,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M909.3266739736606,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1039.2304845413264,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1169.1342951089923,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1299.0381056766582,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1428.9419162443241,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1558.84572681199,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1688.749537379656,450m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M64.9519052838329,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M194.8557158514987,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M324.7595264191645,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M454.6633369868303,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M584.5671475544962,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M714.470958122162,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M844.3747686898278,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M974.2785792574936,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1104.1823898251594,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1234.086200392825,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1363.990010960491,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1493.8938215281569,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1623.7976320958228,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002M1753.7014426634887,562.5m0,-75l64.9519052838329,37.5l1.4210854715202004e-14,74.99999999999997l-64.95190528383289,37.50000000000002"></path><g class="example-anchor"></g></svg></div>
+</div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="./test_files/d3.hexbin.v0.min.js"></script>
+<script>
+
+/* https://github.com/davidbau/seedrandom Copyright 2013 David Bau. */
+(function(a,b,c,d,e,f){function k(a){var b,c=a.length,e=this,f=0,g=e.i=e.j=0,h=e.S=[];for(c||(a=[c++]);d>f;)h[f]=f++;for(f=0;d>f;f++)h[f]=h[g=j&g+a[f%c]+(b=h[f])],h[g]=b;(e.g=function(a){for(var b,c=0,f=e.i,g=e.j,h=e.S;a--;)b=h[f=j&f+1],c=c*d+h[j&(h[f]=h[g=j&g+b])+(h[g]=b)];return e.i=f,e.j=g,c})(d)}function l(a,b){var e,c=[],d=(typeof a)[0];if(b&&"o"==d)for(e in a)try{c.push(l(a[e],b-1))}catch(f){}return c.length?c:"s"==d?a:a+"\0"}function m(a,b){for(var d,c=a+"",e=0;c.length>e;)b[j&e]=j&(d^=19*b[j&e])+c.charCodeAt(e++);return o(b)}function n(c){try{return a.crypto.getRandomValues(c=new Uint8Array(d)),o(c)}catch(e){return[+new Date,a,a.navigator.plugins,a.screen,o(b)]}}function o(a){return String.fromCharCode.apply(0,a)}var g=c.pow(d,e),h=c.pow(2,f),i=2*h,j=d-1;c.seedrandom=function(a,f){var j=[],p=m(l(f?[a,o(b)]:0 in arguments?a:n(),3),j),q=new k(j);return m(o(q.S),b),c.random=function(){for(var a=q.g(e),b=g,c=0;h>a;)a=(a+c)*d,b*=d,c=q.g(1);for(;a>=i;)a/=2,b/=2,c>>>=1;return(a+c)/b},p},m(c.random(),b)})(this,[],Math,256,6,52);
+
+var data = [
+{title: "Reingold–Tilford Tree (Radial)", url: '#'},
+{title: "Factorisation Diagrams", url: '#'},
+{title: "Phylogenetic Tree of Life", url: '#'},
+{title: "Geographic Clipping", url: '#'},
+{title: "Les Misérables Co-occurrence Matrix", url: '#'},
+{title: "L*a*b* and HCL color spaces", url: '#'},
+{title: "Treemap", url: '#'},
+{title: "Map Projection Transitions", url: '#'},
+{title: "Across U.S. Companies, Tax Rates Vary Greatly", url: '#'},
+{title: "Rotating Voronoi", url: '#'},
+{title: "Zoomable Geography", url: '#'},
+{title: "Fisheye Distortion", url: '#'},
+{title: "Geodesic Rainbow", url: '#'},
+{title: "Hierarchical Bar Chart", url: '#'},
+{title: "Exoplanets", url: '#'},
+{title: "Crossfilter", url: '#'},
+{title: "Alaska’s villages on the frontline of climate change", url: '#'},
+{title: "The federal health-care exchange’s abysmal success rate", url: '#'},
+{title: "Counties Blue and Red, Moving Right and Left", url: '#'},
+{title: "At the National Conventions, the Words They Used", url: '#'},
+{title: "Reprojected Raster Tiles", url: '#'},
+{title: "Hive Plots", url: '#'},
+{title: "Donut Transitions", url: '#'},
+{title: "Non-Contiguous Cartogram", url: '#'},
+{title: "Spermatozoa", url: '#'},
+{title: "Zoomable Circle Packing", url: '#'},
+{title: "Transform Transitions", url: '#'},
+{title: "Scatterplot Matrix", url: '#'},
+{title: "Janet L. Yellen, on the Economy’s Twists and Turns", url: '#'},
+{title: "Front Row to Fashion Week", url: '#'},
+{title: "Interrupted Sinu-Mollweide", url: '#'},
+{title: "Streamgraph", url: '#'},
+{title: "Force-Directed Graph", url: '#'},
+{title: "Zoomable Icicle", url: '#'},
+{title: "Collision Detection", url: '#'},
+{title: "Waterman Butterfly", url: '#'},
+{title: "Airocean World", url: '#'},
+{title: "Countries by Area", url: '#'},
+{title: "Bilevel Partition", url: '#'},
+{title: "Map Zooming", url: '#'},
+{title: "Fisher–Yates Shuffle", url: '#'},
+{title: "Sphere Spirals", url: '#'},
+{title: "World Tour", url: '#'},
+{title: "Zoomable Treemaps", url: '#'},
+{title: "Clipped Map Tiles", url: '#'},
+{title: "Cubism.js", url: '#'},
+{title: "Voronoi Labels", url: '#'},
+{title: "Bivariate Hexbin Map", url: '#'},
+{title: "OMG Particles!", url: '#'},
+{title: "Calendar View", url: '#'},
+{title: "The Wealth & Health of Nations", url: '#'},
+{title: "Collapsible Tree", url: '#'},
+{title: "Hexagonal Binning", url: '#'},
+{title: "Over the Decades, How States Have Shifted", url: '#'},
+{title: "China Still Dominates, but Some Manufacturers Look Elsewhere", url: '#'},
+{title: "Strikeouts on the Rise", url: '#'},
+{title: "Epicyclic Gearing", url: '#'},
+{title: "Voronoi Tessellation", url: '#'},
+{title: "The state of our union is … dumber", url: '#'},
+{title: "Chord Diagram", url: '#'},
+{title: "Floating Landmasses", url: '#'},
+{title: "How the Tax Burden Has Changed", url: '#'},
+{title: "Prime Number Patterns", url: '#'},
+{title: "Koalas to the Max", url: '#'},
+{title: "Constellations of Directors and Their Stars", url: '#'},
+{title: "Drought and Deluge in the Lower 48", url: '#'},
+{title: "Animated Bézier Curves", url: '#'},
+{title: "Histogram", url: '#'},
+{title: "Stacked-to-Grouped Bars", url: '#'},
+{title: "Force-Directed States of America", url: '#'},
+{title: "Faux-3D Arcs", url: '#'},
+{title: "512 Paths to the White House", url: '#'},
+{title: "Polar Clock", url: '#'},
+{title: "Population Pyramid", url: '#'},
+{title: "The America’s Cup Finale: Oracle’s Path to Victory", url: '#'},
+{title: "Rainbow Worm", url: '#'},
+{title: "Four Ways to Slice Obama’s 2013 Budget Proposal", url: '#'},
+{title: "Quadtree", url: '#'},
+{title: "Bubble Chart", url: '#'},
+{title: "Women as Academic Authors, 1665-2010", url: '#'},
+{title: "Choropleth", url: '#'},
+{title: "Gilbert’s Two-World Perspective", url: '#'},
+{title: "For Eli Manning, 150 Games and Counting", url: '#'},
+{title: "Word Tree", url: '#'},
+{title: "Mobile Patent Suits", url: '#'},
+{title: "Mitchell’s Best-Candidate", url: '#'},
+{title: "Sankey Diagrams", url: '#'},
+{title: "van Wijk Smooth Zooming", url: '#'},
+{title: "Bryce Harper: A swing of beauty", url: '#'},
+{title: "Dissecting a Trailer: The Parts of the Film That Make the Cut", url: '#'},
+{title: "Violence and guns in best-selling video games", url: '#'},
+{title: "Hierarchical Edge Bundling", url: '#'},
+{title: "Geographic Bounding Boxes", url: '#'},
+{title: "Live Results: Massachusetts Senate Special Election", url: '#'},
+{title: "Zoomable Map Tiles", url: '#'},
+{title: "D3 Show Reel", url: '#'},
+{title: "Building Hamiltonian Graphs from LCF Notation", url: '#'},
+{title: "Sequences sunburst", url: '#'},
+{title: "Azimuth and Distance from London", url: '#'},
+{title: "Parallel Sets", url: '#'}
+];
+
+data.forEach(function(d, i) {
+  d.i = i % 10;
+  d.j = i / 21 | 0;
+});
+
+Math.seedrandom(+d3.time.hour(new Date));
+
+d3.shuffle(data);
+
+var height = 1600,
+    imageWidth = 132,
+    imageHeight = 152,
+    radius = 75,
+    depth = 4;
+
+var currentFocus = [innerWidth / 2, height / 2],
+    desiredFocus,
+    idle = true;
+
+var style = document.body.style,
+    transform = ("webkitTransform" in style ? "-webkit-"
+        : "MozTransform" in style ? "-moz-"
+        : "msTransform" in style ? "-ms-"
+        : "OTransform" in style ? "-o-"
+        : "") + "transform";
+
+var hexbin = d3.hexbin()
+    .radius(radius);
+
+if (!("ontouchstart" in document)) d3.select("#examples")
+    .on("mousemove", mousemoved);
+
+var deep = d3.select("#examples-deep");
+
+var canvas = deep.append("canvas")
+    .attr("height", height);
+
+var context = canvas.node().getContext("2d");
+
+var svg = deep.append("svg")
+    .attr("height", height);
+
+var mesh = svg.append("path")
+    .attr("class", "example-mesh");
+
+var anchor = svg.append("g")
+      .attr("class", "example-anchor")
+    .selectAll("a");
+
+var graphic = deep.selectAll("svg,canvas");
+
+var image = new Image;
+image.src = "http://d3js.org/ex.jpg?3f2d00ffdba6ced9c50f02ed42f12f6156368bd2";
+image.onload = resized;
+
+d3.select(window)
+    .on("resize", resized)
+    .each(resized);
+
+function drawImage(d) {
+  context.save();
+  context.beginPath();
+  context.moveTo(0, -radius);
+
+  for (var i = 1; i < 6; ++i) {
+    var angle = i * Math.PI / 3,
+        x = Math.sin(angle) * radius,
+        y = -Math.cos(angle) * radius;
+    context.lineTo(x, y);
+  }
+
+  context.clip();
+  context.drawImage(image,
+      imageWidth * d.i, imageHeight * d.j,
+      imageWidth, imageHeight,
+      -imageWidth / 2, -imageHeight / 2,
+      imageWidth, imageHeight);
+  context.restore();
+}
+
+function resized() {
+  var deepWidth = innerWidth * (depth + 1) / depth,
+      deepHeight = height * (depth + 1) / depth,
+      centers = hexbin.size([deepWidth, deepHeight]).centers();
+
+  desiredFocus = [innerWidth / 2, height / 2];
+  moved();
+
+  graphic
+      .style("left", Math.round((innerWidth - deepWidth) / 2) + "px")
+      .style("top", Math.round((height - deepHeight) / 2) + "px")
+      .attr("width", deepWidth)
+      .attr("height", deepHeight);
+
+  centers.forEach(function(center, i) {
+    center.j = Math.round(center[1] / (radius * 1.5));
+    center.i = Math.round((center[0] - (center.j & 1) * radius * Math.sin(Math.PI / 3)) / (radius * 2 * Math.sin(Math.PI / 3)));
+    context.save();
+    context.translate(Math.round(center[0]), Math.round(center[1]));
+    drawImage(center.example = data[(center.i % 10) + ((center.j + (center.i / 10 & 1) * 5) % 10) * 10]);
+    context.restore();
+  });
+
+  mesh.attr("d", hexbin.mesh);
+
+  anchor = anchor.data(centers, function(d) { return d.i + "," + d.j; });
+
+  anchor.exit().remove();
+
+  anchor.enter().append("a")
+      .attr("xlink:href", function(d) { return d.example.url; })
+      .attr("xlink:title", function(d) { return d.example.title; })
+    .append("path")
+      .attr("d", hexbin.hexagon());
+
+  anchor
+      .attr("transform", function(d) { return "translate(" + d + ")"; });
+}
+
+function mousemoved() {
+  var m = d3.mouse(this);
+
+  desiredFocus = [
+    Math.round((m[0] - innerWidth / 2) / depth) * depth + innerWidth / 2,
+    Math.round((m[1] - height / 2) / depth) * depth + height / 2
+  ];
+
+  moved();
+}
+
+function moved() {
+  if (idle) d3.timer(function() {
+    if (idle = Math.abs(desiredFocus[0] - currentFocus[0]) < .5 && Math.abs(desiredFocus[1] - currentFocus[1]) < .5) currentFocus = desiredFocus;
+    else currentFocus[0] += (desiredFocus[0] - currentFocus[0]) * .14, currentFocus[1] += (desiredFocus[1] - currentFocus[1]) * .14;
+    deep.style(transform, "translate(" + (innerWidth / 2 - currentFocus[0]) / depth + "px," + (height / 2 - currentFocus[1]) / depth + "px)");
+    return idle;
+  });
+}
+
+d3.selectAll('a').on('click', function(evt){
+  evt.preventDefault();
+})
+
+</script>
+
+<script async="" src="./test_files/highlight.v0.min.js"></script>
+</body></html>
