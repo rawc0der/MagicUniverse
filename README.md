@@ -1,3 +1,5 @@
+     --- This project is self hosted at http://magic-universe.herokuapp.com/ ---
+
 - About -
 
 The Magic Universe Coloring Puzzle is composed many drawings, each one by a different artist. Each drawing connects on all sides to other drawings.We invite anyone interested to add a piece to the ever expanding puzzle made by many people.
