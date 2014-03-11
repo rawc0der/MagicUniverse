@@ -15,7 +15,7 @@
 	height: 194px;
 }
 .hovered {
-	border: 1px solid #222;
+	border: 1px solid #3D3D3D;
 }
 .spotFrame {
 	width: 150px;
@@ -27,13 +27,71 @@
 	width: 150px;
 	height: 194px;
 }
-.artist {
+.artist, .toolbar {
 	display:none;
 }
 
 .hovered .artist {
 	display: block;
+	/*width:125%;*/
+	padding: 6px 6px;
+	background: #272727;
+	border-top: 1px solid #3D3D3D;
+	margin:4px;
+	text-align: center;
+	opacity:0.7;
 }
+
+.hovered .anchor {
+	position: relative;
+
+	display:block;
+	width:16px;
+	height:16px;
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVR42qXTMQrCQBRFUV2A4BYkFhKx0MLOhdgKVloIVtYKdi5AAu5Ba5s0Ioi12xAFy+ctPgTCDBkmxSEEHjdFZhqSagkaZVk2wgHD2MAGwhNpTCCHzAf94ADjM1TywrgIFOMmZlja8wp5nFyBHlThhj0mrkAbP8jjUvkXrC6HPPgcMH44AouggB2YBPdSYFUZYDSHcLT3Hd4Qpt6AjTv4Yl2KtpB474KNuthiEHWZ7Otp7G2s5Q+gAtS/jeH2+AAAAABJRU5ErkJggg==') no-repeat;
+}
+
+.hovered .toolbar {
+	display:block;
+	position:absolute;
+	bottom:4px;
+	width:150px;
+	height: 28px;
+	background: #272727;
+	border-top: 1px solid #3D3D3D;
+	line-height: 20px;
+	overflow: hidden;
+	text-align: center;
+	padding: 3px 4px 4px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.hovered .toolbar a{
+	color: #CCC;
+	font-weight: 300;
+	padding-left: 20px;
+	text-decoration: none;
+}
+.hovered .toolbar a:hover{
+	color: #fffff0;
+}
+.hovered .anchor:hover {
+	width:16px;
+	height:16px;
+	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqklEQVR42qXTsQqCUBiGYbsAoVsQHcJwqMGtC3EVmmoImpwL2ryAlu7BZhcXCcS524iCxr93Cw5HzvH4wbMd3kV/T0QmsX24RomVa6CAsB6xS6CR/95YjglUUPdEqgvMkGOPHDWGdtMFFjCtxQUbXWCOL4Z2t/gK1PVrxvwHHdTtbAMlQjyUwMEmsIWwKzyc8YKwzBQI8MFReeQjNN1ChBMS12MKELte4yQ/Rpc8D9Os2nsAAAAASUVORK5CYII=') no-repeat;
+}
+
+.hovered .artist:hover {
+	opacity:0.9;
+}
+
+.hovered .artist a {
+	text-decoration: none;
+	color: #CCC;
+}
+
 
 .drawingFrame {
 	/*position:absolute;	*/
@@ -52,7 +110,11 @@
 	width:30px;
 	height:30px;
 }
+.hovered img.loader {
+	display:none;
+}
 .drawingInfo {
 	position:absolute;
-	padding-left: 10px;
+	height:194px;
+	width:150px;
 }

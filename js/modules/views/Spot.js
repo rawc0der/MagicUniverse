@@ -13,13 +13,20 @@ define([
 			time: true,
 			debug:false
 		},
+		drawing: null,
 		events: {
 			"click .spotFrame": function(evt){
 				console.log('Spot: clicked', $(evt.currentTarget) )
 			},
 			"click .artist": function(evt){
 				evt.stopPropagation();
+				evt.preventDefault();
 				console.log('Spot: clicked Artist', $(evt.currentTarget) )
+			},
+			"click .connect": function(evt){
+				evt.preventDefault();
+				evt.stopPropagation();
+				console.log('Spot: clicked Connect', $(evt.currentTarget) )
 			},
 			"hover .spotFrame": function(evt){
 				// console.log('Spot: hover', $(evt.currentTarget) )
@@ -40,17 +47,12 @@ define([
 		loadDrawing: function(opts){
 			console.log('Spot:: loadDrawing', this);
 			var i = _.random(3, 3);
-			var drawing = new Drawing({
-				template: {
-					templateDataObject: {
-						drawingUrl: 'loaders/'+i+'.GIF',
-						artistInfo: 'Upload Soon',
-						imgClass: 'loader'
-					} 
-				}
-			});
+			var drawing = this.drawing = new Drawing({});
 			drawing.renderTo( this.$el.find(this.subviewsContainer), true )
-		}
+		},
+		setUrl: function(opts){
+			this.drawing.buildDrawing();
+		},
 	});
 
 	return SpotView;

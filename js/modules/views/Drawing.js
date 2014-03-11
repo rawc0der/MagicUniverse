@@ -2,7 +2,7 @@ define([
  'underscore',
  'backbone',
  'widget',
- 'text!templates/drawingTemplate.html'
+ 'text!templates/DrawingTemplate.html'
 ], function(_, Backbone, Widget, drawingTemplate ){
 	
 	/**
@@ -23,9 +23,9 @@ define([
 		template: {
 			templateString: drawingTemplate,
 			templateDataObject: {
-				drawingUrl: null,
-				artistInfo: null,
-				imgClass: null
+				drawingUrl: 'loaders/3.gif',
+				artistInfo: ' Available Spot ',
+				imgClass: 'loader'
 			}
 		},
 		// subviewsContainer: '.drawingFrame',
@@ -33,15 +33,16 @@ define([
 		viewOptions: ['drawingUrl', 'artistInfo', 'imgClass'],
 		initialize: function(){
 			Widget.prototype.initialize.call(this);
-			console.log('Drawing:: init', this);
+			console.log('Drawing:: init');
 		},
 		buildDrawing: function(newDrawingUrl, newArtistInfo, newImgClass){
-			this.setTemplate({
+			var opts = _.defaults(this.template.templateDataObject, {
 				drawingUrl: newDrawingUrl,
 				artistInfo: newArtistInfo,
 				imgClass: newImgClass
 
 			});
+			this.setTemplate(opts);
 		}
 
 	});
