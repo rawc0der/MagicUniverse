@@ -1,0 +1,58 @@
+.canvas {
+	width:1200px;
+	height:100%;
+}
+
+.canvasSubviews {
+	padding:10px;
+	width:100%;
+	min-height:600px;
+}
+
+.spot {
+	float:left;
+	width: 150px;
+	height: 194px;
+}
+.hovered {
+	border: 1px solid #222;
+}
+.spotFrame {
+	width: 150px;
+	height: 194px;
+}
+
+.drawing {
+	display:block;
+	width: 150px;
+	height: 194px;
+}
+.artist {
+	display:none;
+}
+
+.hovered .artist {
+	display: block;
+}
+
+.drawingFrame {
+	/*position:absolute;	*/
+	width: 150px;
+	height: 194px;
+}
+.drawingCanvas {
+	display: table-cell;
+    vertical-align: middle;
+	width: 150px;
+	height: 194px;
+}
+.drawingCanvas img.loader {
+ 	margin: 0 auto;
+ 	display:block;
+	width:30px;
+	height:30px;
+}
+.drawingInfo {
+	position:absolute;
+	padding-left: 10px;
+}

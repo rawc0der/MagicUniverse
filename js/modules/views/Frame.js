@@ -2,8 +2,9 @@ define([
  'underscore',
  'backbone',
  'widget',
- 'text!templates/frameTemplate.html'
-], function(_, Backbone, Widget, frameTemplate){
+ 'text!templates/frameTemplate.html',
+ 'views/AllCanvas'
+], function(_, Backbone, Widget, frameTemplate, AllCanvas){
 	
 	/**
 	 *  Extend Backbone View with custom attributes
@@ -23,6 +24,10 @@ define([
 		initialize: function(){
 			Widget.prototype.initialize.call(this);
 			console.log("MagicUniverseFrame:: init");
+
+			var allCanvas = new AllCanvas({});
+			this.addSubview(allCanvas);
+			this.renderSubviews();
 		}
 
 	});

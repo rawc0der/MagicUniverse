@@ -22,9 +22,9 @@ define([
 			console.log('Controller::Start  --> define logic');		
 			var siteFrame = new SiteFrame({});
 			siteFrame.renderTo( $('#page_wrapper'), true );
-			d3.select("body").style("background-color", "black");
-			d3.select("h2").style("color", "white");
-			d3.select("h5").style("color", "#cdc");
+			d3.select("body").style("background-color", "#F4F4F4");
+			d3.select("h2").style("color", "#222");
+			d3.select("h5").style("color", "#222");
 
 		} // end start
 

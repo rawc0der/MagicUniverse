@@ -53,12 +53,11 @@ define(['underscore', 'backbone'], function(_, Backbone){
         renderSubviews: function(){
             if(this._subviews) {
                 var $subviewContainer = this.$( this._subviewsContainer )
-                $subviewContainer = ($subviewContainer.length) ? $subviewContainer : $subviewContainer.prevObject
+                // $subviewContainer = ($subviewContainer.length) ? $subviewContainer : $subviewContainer.prevObject
                 if(this._config.debug === true) console.log('%c Widget::renderSubviews::subviewsContainer' ,'color:#a9a', $subviewContainer)
                 _.map(this._subviews, function(subview){
                     subview.renderSubviews();
                     $subviewContainer.append( subview.$el );
-                    
                 }, this);
             }
         },
