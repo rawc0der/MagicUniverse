@@ -43,7 +43,7 @@ define([
 			var drawing = new Drawing({
 				template: {
 					templateDataObject: {
-						drawingUrl: 'loaders/'+i+'.gif',
+						drawingUrl: 'loaders/'+i+'.GIF',
 						artistInfo: 'Upload Soon',
 						imgClass: 'loader'
 					} 
