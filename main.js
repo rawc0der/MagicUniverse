@@ -17,12 +17,12 @@ require.config({
 	    text:'library/text',
 	    d3: 'library/d3.v3.min',
 	    'jq-drag':'library/jquery.event.drag',
-	    'io': '../node/lib/socket.io'
+	    // 'io': '../node/lib/socket.io'
 	    // soyutils: 'library/googleClosure/soyutils'
 	},
 	shim: {
 		"d3": {exports:"d3"},
-		"io": {exports:"io"}
+		// "io": {exports:"io"}
 	}
 });
 /**
@@ -31,7 +31,6 @@ require.config({
 require([
 	'app',
 	'd3',
-	'io'
 
 ], function(App, d3, jqDrag, io){ 
 	window.d3 = d3 || {};

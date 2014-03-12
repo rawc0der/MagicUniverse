@@ -6,10 +6,10 @@ define([
   'modules/MyModule',
   'transit',
   'jq-drag',
-  'io'
+  // 'io'
 
 
-], function($, _, Backbone, MyController, MyModule, transit, jqDrag, io){
+], function($, _, Backbone, MyController, MyModule, transit, ){
   /**
    * Main Application File Module
    * Store Components inside this object for global refs handles
