@@ -2,7 +2,7 @@ define([
  'underscore',
  'backbone',
  'widget',
- 'text!templates/DrawingTemplate.html'
+ 'text!templates/drawingTemplate.html'
 ], function(_, Backbone, Widget, drawingTemplate ){
 	
 	/**
