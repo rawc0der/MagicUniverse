@@ -15,11 +15,14 @@ require.config({
 	    widget: 'modules/views/widget-0.7',
 	    transit: 'library/min/jquery.transit.min',
 	    text:'library/text',
-	    d3: 'library/d3.v3.min'
+	    d3: 'library/d3.v3.min',
+	    'jq-drag':'library/jquery.event.drag',
+	    'io': '../node/lib/socket.io'
 	    // soyutils: 'library/googleClosure/soyutils'
 	},
 	shim: {
-		"d3": {exports:"d3"}
+		"d3": {exports:"d3"},
+		"io": {exports:"io"}
 	}
 });
 /**
@@ -27,9 +30,10 @@ require.config({
  */
 require([
 	'app',
-	'd3'
+	'd3',
+	'io'
 
-], function(App, d3){ 
+], function(App, d3, jqDrag, io){ 
 	window.d3 = d3 || {};
 	/**
 	 *  Initialize application when DOM finishes loading
@@ -37,6 +41,7 @@ require([
 	$(function(){
 
 		window.App = App.initialize();
+
 
 	});
 

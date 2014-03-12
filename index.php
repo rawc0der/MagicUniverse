@@ -11,5 +11,6 @@
     <body>
         <!-- Add your site or application content here -->       
         <div id="page_wrapper"> </div>
+        <!-- <canvas width="2000" height="2000" style=""></canvas> -->
     </body>
 </html>

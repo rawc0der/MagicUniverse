@@ -48,7 +48,7 @@
 	display:block;
 	width:16px;
 	height:16px;
-	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVR42qXTMQrCQBRFUV2A4BYkFhKx0MLOhdgKVloIVtYKdi5AAu5Ba5s0Ioi12xAFy+ctPgTCDBkmxSEEHjdFZhqSagkaZVk2wgHD2MAGwhNpTCCHzAf94ADjM1TywrgIFOMmZlja8wp5nFyBHlThhj0mrkAbP8jjUvkXrC6HPPgcMH44AouggB2YBPdSYFUZYDSHcLT3Hd4Qpt6AjTv4Yl2KtpB474KNuthiEHWZ7Otp7G2s5Q+gAtS/jeH2+AAAAABJRU5ErkJggg==') no-repeat;
+	background: url('loaders/pin.png') no-repeat;
 }
 
 .hovered .toolbar {
@@ -80,7 +80,7 @@
 .hovered .anchor:hover {
 	width:16px;
 	height:16px;
-	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqklEQVR42qXTsQqCUBiGYbsAoVsQHcJwqMGtC3EVmmoImpwL2ryAlu7BZhcXCcS524iCxr93Cw5HzvH4wbMd3kV/T0QmsX24RomVa6CAsB6xS6CR/95YjglUUPdEqgvMkGOPHDWGdtMFFjCtxQUbXWCOL4Z2t/gK1PVrxvwHHdTtbAMlQjyUwMEmsIWwKzyc8YKwzBQI8MFReeQjNN1ChBMS12MKELte4yQ/Rpc8D9Os2nsAAAAASUVORK5CYII=') no-repeat;
+	background: url('loaders/pin2.png') no-repeat;
 }
 
 .hovered .artist:hover {

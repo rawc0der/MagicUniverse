@@ -27,6 +27,7 @@ define([
 				evt.preventDefault();
 				evt.stopPropagation();
 				console.log('Spot: clicked Connect', $(evt.currentTarget) )
+				$(evt.currentTarget).parents('.drawing').toggleClass('hovered');
 			},
 			"hover .spotFrame": function(evt){
 				// console.log('Spot: hover', $(evt.currentTarget) )
