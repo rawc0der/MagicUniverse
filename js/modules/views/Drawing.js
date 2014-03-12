@@ -23,7 +23,7 @@ define([
 		template: {
 			templateString: drawingTemplate,
 			templateDataObject: {
-				drawingUrl: 'loaders/3.gif',
+				drawingUrl: 'loaders/3.GIF',
 				artistInfo: ' Available Spot ',
 				imgClass: 'loader'
 			}
